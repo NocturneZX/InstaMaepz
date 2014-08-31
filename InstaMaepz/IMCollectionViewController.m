@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Julio Reyes. All rights reserved.
 //
 
+#import "IMPhotoDetailsViewController.h"
 #import "IMCollectionViewController.h"
 #import "UserCollectionCell.h"
 #import "IMInstagramPhoto.h"
@@ -80,5 +81,13 @@
     [collectioncell.photoImage sd_setImageWithURL:[NSURL URLWithString:currentPhoto.photoStandardQualityImageURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     return collectioncell;
 }
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //Select a photo to get a detailed look
+    IMInstagramPhoto *selectedPhoto = [self.photoOfUsers objectAtIndex:indexPath.row];
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    IMPhotoDetailsViewController *detail = [storyboard instantiateViewControllerWithIdentifier:@"IMPhotoDetailsViewController"];
+    [detail loadFromPhoto:selectedPhoto];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 @end

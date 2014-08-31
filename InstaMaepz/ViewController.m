@@ -126,6 +126,49 @@
     // Return nada if neither
     return nil;
 }
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    MKAnnotationView *aV;
+    
+    for (aV in views) {
+        
+        // Don't pin drop if annotation is user location
+        if ([aV.annotation isKindOfClass:[MKUserLocation class]]) {
+            continue;
+        }
+        
+        // Check if current annotation is inside visible map rect, else go to next one
+        MKMapPoint point =  MKMapPointForCoordinate(aV.annotation.coordinate);
+        if (!MKMapRectContainsPoint(self.MKInstaMapView.visibleMapRect, point)) {
+            continue;
+        }
+        
+        CGRect endFrame = aV.frame;
+        
+        // Move annotation out of view
+        aV.frame = CGRectMake(aV.frame.origin.x, aV.frame.origin.y - self.view.frame.size.height, aV.frame.size.width, aV.frame.size.height);
+        
+        // Animate drop
+        [UIView animateWithDuration:1.0 delay:0.04*[views indexOfObject:aV] options: UIViewAnimationOptionCurveLinear animations:^{
+            
+            aV.frame = endFrame;
+            
+            // Animate squash
+        }completion:^(BOOL finished){
+            if (finished) {
+                [UIView animateWithDuration:0.05 animations:^{
+                    aV.transform = CGAffineTransformMakeScale(1.0, 0.8);
+                    
+                }completion:^(BOOL finished){
+                    if (finished) {
+                        [UIView animateWithDuration:0.1 animations:^{
+                            aV.transform = CGAffineTransformIdentity;
+                        }];
+                    }
+                }];
+            }
+        }];
+    }
+}
 
 -(void)CenterTheMap:(CGFloat) radius{
     
@@ -179,8 +222,16 @@
     self.datadownloader.delegate = self;
     self.datadownloader.searchCurrentLocation = loc;
     self.datadownloader.searchRadius = DEFAULT_RADIUS;
+    
+    // Remove any current annotations(if any) and center the map.
+    NSArray *annotations = self.MKInstaMapView.annotations;
+    if(annotations.count > 0) {
+        [self.MKInstaMapView removeAnnotations:annotations];
+    }
+    [self.MKInstaMapView removeOverlays:self.MKInstaMapView.overlays];
     [self CenterTheMap:DEFAULT_RADIUS];
     
+    // Get the photo objects
     [self.datadownloader getArrayOfPhotoObjectsFromLocation];
     
 }
@@ -197,7 +248,13 @@
     [self.HUD show:YES];
     [self.HUD hide:YES afterDelay:3.5f];
 }
-
+#pragma mark - UISlider Methods
+- (void)sliderTouchEnded:(UISlider *)sender {
+    [self getInstagramData:[IMLocationService currentLocation]];
+}
+- (void)sliderValueChanged:(UISlider *)sender {
+    
+}
 #pragma mark - CLLocation KVO Methods
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
@@ -212,12 +269,6 @@
             CLLocation *currentLoc = [IMLocationService sharedService].currentLocation;
         
             // Call Instagram API and clear the old annotations
-            
-            NSArray *annotations = self.MKInstaMapView.annotations;
-            if(annotations.count > 0) {
-                [self.MKInstaMapView removeAnnotations:annotations];
-            }
-            [self.MKInstaMapView removeOverlays:self.MKInstaMapView.overlays];
             [self getInstagramData:currentLoc];
         
         }

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMInstagramPhoto.h"
 
 @interface IMPhotoDetailsViewController : UIViewController
-- (void)loadFromPhoto:(NSArray *)photo;
+- (void)loadFromPhoto:(IMInstagramPhoto *)photo;
 @end
