@@ -10,7 +10,7 @@
 
 @interface UserCollectionCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *photoImage;
-@property (weak, nonatomic) IBOutlet UILabel *photoUserName;
-@property (weak, nonatomic) IBOutlet UILabel *userDistance;
+@property (strong, nonatomic) IBOutlet UILabel *photoUserName;
+@property (strong, nonatomic) IBOutlet UILabel *userDistance;
 
 @end

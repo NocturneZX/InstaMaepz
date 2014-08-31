@@ -8,10 +8,12 @@
 
 #import "IMCollectionViewController.h"
 #import "UserCollectionCell.h"
+#import "IMInstagramPhoto.h"
+#import "UIImageView+WebCache.h"
 
 @interface IMCollectionViewController ()
 
-@property (nonatomic, strong) UICollectionView *IMCollectionView;
+@property (nonatomic, strong) IBOutlet UICollectionView *IMCollectionView;
 
 @property (nonatomic, strong) NSArray *photoOfUsers;
 
@@ -27,17 +29,21 @@
     }
     return self;
 }
-
+- (void)loadFromPhoto:(NSArray *)photo{
+    self.photoOfUsers = photo;
+}
 -(void)viewWillAppear:(BOOL)animated{
-    //Register the Custom Collection Cell
-    [self.IMCollectionView registerNib:[UINib nibWithNibName:@"UserCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"IMInstagramPhotoCollectionViewCell"];
+
 
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    //Register the Custom Collection Cell
+    [self.IMCollectionView registerNib:[UINib nibWithNibName:@"UserCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"UserCollectionCell"];
+    
+    // Do any additional setup after loading the view.
     UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
     flowLayout.minimumInteritemSpacing = 8;
     flowLayout.itemSize = CGSizeMake(96, 156);
@@ -53,22 +59,26 @@
 
 
 #pragma mark - UICollectionView Delegation
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(96, 156);
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photoOfUsers.count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"IMInstagramPhotoCollectionViewCell";
+    static NSString *cellIdentifier = @"UserCollectionCell";
     
-    UserCollectionCell *cell = (UserCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    UserCollectionCell *collectioncell = (UserCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    IMInstagramPhoto *currentPhoto = [self.photoOfUsers objectAtIndex:indexPath.row];
     
-    return cell;
+    collectioncell.photoUserName.text = currentPhoto.photoUserName;
+    collectioncell.userDistance.text = [NSString stringWithFormat:@"%.2f miles",
+                                        KILOMETERS_TO_MILES(currentPhoto.distance)];
+    [collectioncell.photoImage sd_setImageWithURL:[NSURL URLWithString:currentPhoto.photoStandardQualityImageURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    return collectioncell;
 }
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(150, 150);
-}
-
 
 @end

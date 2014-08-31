@@ -248,6 +248,8 @@
     } else {
         UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         IMCollectionViewController *phtoCollectionView = [storyboard instantiateViewControllerWithIdentifier:@"IMCollectionViewController"];
+        
+        [phtoCollectionView loadFromPhoto:self.photosFromLocations];
         [self.navigationController pushViewController:phtoCollectionView animated:YES];
         
     }

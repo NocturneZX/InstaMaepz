@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface IMCollectionViewController : UIViewController
-
+- (void)loadFromPhoto:(NSArray *)photo;
 @end

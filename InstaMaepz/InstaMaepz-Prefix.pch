@@ -18,5 +18,5 @@
     #import "MBProgressHUD.h"
 #endif
 
-#define METERS_TO_MILES(meters) meters * 0.000621371192
+#define KILOMETERS_TO_MILES(km) km * 0.621371192
 #define METERS_PER_MILE 1609.344

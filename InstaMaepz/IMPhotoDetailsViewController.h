@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface IMPhotoDetailsViewController : UIViewController
-
+- (void)loadFromPhoto:(NSArray *)photo;
 @end

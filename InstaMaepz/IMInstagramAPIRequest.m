@@ -13,7 +13,7 @@
 NSString* const kInstagramOAuthClientId             = @"cd4794d2c60143caa8901c0da1860f26";
 NSString* const kInstagramOAuthClientSecret         = @"157d2ed4cd2d4696ba6af35963d627fb";
 NSString* const kInstagramAPIServer                 = @"https://api.instagram.com";
-NSString* const kInstagramMediaSearchEndpoint       = @"/v1/media/search";
+NSString* const kInstagramMediaSearchEndpoint       = @"/v1/media/search?";
 NSString* const kInstagramMediaInfoEndpoint         = @"/media/%@";
 
 @implementation IMInstagramAPIRequest
