@@ -53,6 +53,26 @@
 		4D9DF7E319B25C7E00506290 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF7D319B25C7E00506290 /* UIView+WebCacheOperation.m */; };
 		4D9DF7E819B2785600506290 /* circlemask.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7E619B2785600506290 /* circlemask.png */; };
 		4D9DF7E919B2785600506290 /* notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7E719B2785600506290 /* notifications.png */; };
+		4D9DF7EC19B50FB600506290 /* IMCustomReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF7EB19B50FB600506290 /* IMCustomReusableView.m */; };
+		4D9DF7EE19B5108300506290 /* IMPhotoLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7ED19B5108300506290 /* IMPhotoLogo.png */; };
+		4D9DF7F019B511AD00506290 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9DF7EF19B511AD00506290 /* QuartzCore.framework */; };
+		4D9DF7F319B5122B00506290 /* IMCustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F219B5122B00506290 /* IMCustomCollectionLayout.m */; };
+		4D9DF80519B527D600506290 /* GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F519B527D600506290 /* GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff */; };
+		4D9DF80619B527D600506290 /* GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F619B527D600506290 /* GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff */; };
+		4D9DF80719B527D600506290 /* GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F719B527D600506290 /* GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff */; };
+		4D9DF80819B527D600506290 /* GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F819B527D600506290 /* GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff */; };
+		4D9DF80919B527D600506290 /* GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7F919B527D600506290 /* GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff */; };
+		4D9DF80A19B527D600506290 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FA19B527D600506290 /* LICENSE.txt */; };
+		4D9DF80B19B527D600506290 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FB19B527D600506290 /* OpenSans-Bold.ttf */; };
+		4D9DF80C19B527D600506290 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FC19B527D600506290 /* OpenSans-BoldItalic.ttf */; };
+		4D9DF80D19B527D600506290 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FD19B527D600506290 /* OpenSans-ExtraBold.ttf */; };
+		4D9DF80E19B527D600506290 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FE19B527D600506290 /* OpenSans-ExtraBoldItalic.ttf */; };
+		4D9DF80F19B527D600506290 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF7FF19B527D600506290 /* OpenSans-Italic.ttf */; };
+		4D9DF81019B527D600506290 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80019B527D600506290 /* OpenSans-Light.ttf */; };
+		4D9DF81119B527D600506290 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80119B527D600506290 /* OpenSans-LightItalic.ttf */; };
+		4D9DF81219B527D600506290 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80219B527D600506290 /* OpenSans-Regular.ttf */; };
+		4D9DF81319B527D600506290 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80319B527D600506290 /* OpenSans-Semibold.ttf */; };
+		4D9DF81419B527D600506290 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80419B527D600506290 /* OpenSans-SemiboldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +163,28 @@
 		4D9DF7D319B25C7E00506290 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		4D9DF7E619B2785600506290 /* circlemask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circlemask.png; sourceTree = "<group>"; };
 		4D9DF7E719B2785600506290 /* notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notifications.png; sourceTree = "<group>"; };
+		4D9DF7EA19B50FB600506290 /* IMCustomReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMCustomReusableView.h; path = InstaMaepz/IMCustomReusableView.h; sourceTree = "<group>"; };
+		4D9DF7EB19B50FB600506290 /* IMCustomReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMCustomReusableView.m; path = InstaMaepz/IMCustomReusableView.m; sourceTree = "<group>"; };
+		4D9DF7ED19B5108300506290 /* IMPhotoLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMPhotoLogo.png; sourceTree = "<group>"; };
+		4D9DF7EF19B511AD00506290 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4D9DF7F119B5122B00506290 /* IMCustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMCustomCollectionLayout.h; path = InstaMaepz/IMCustomCollectionLayout.h; sourceTree = "<group>"; };
+		4D9DF7F219B5122B00506290 /* IMCustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMCustomCollectionLayout.m; path = InstaMaepz/IMCustomCollectionLayout.m; sourceTree = "<group>"; };
+		4D9DF7F519B527D600506290 /* GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff"; sourceTree = "<group>"; };
+		4D9DF7F619B527D600506290 /* GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff"; sourceTree = "<group>"; };
+		4D9DF7F719B527D600506290 /* GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff"; sourceTree = "<group>"; };
+		4D9DF7F819B527D600506290 /* GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff"; sourceTree = "<group>"; };
+		4D9DF7F919B527D600506290 /* GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff"; sourceTree = "<group>"; };
+		4D9DF7FA19B527D600506290 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		4D9DF7FB19B527D600506290 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		4D9DF7FC19B527D600506290 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4D9DF7FD19B527D600506290 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		4D9DF7FE19B527D600506290 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		4D9DF7FF19B527D600506290 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		4D9DF80019B527D600506290 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		4D9DF80119B527D600506290 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		4D9DF80219B527D600506290 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		4D9DF80319B527D600506290 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		4D9DF80419B527D600506290 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9DF7F019B511AD00506290 /* QuartzCore.framework in Frameworks */,
 				4D125EE019B0D6D200B0DAD1 /* MapKit.framework in Frameworks */,
 				4D125EDE19B0D6C700B0DAD1 /* ImageIO.framework in Frameworks */,
 				4D125EDC19B0D6B700B0DAD1 /* CoreLocation.framework in Frameworks */,
@@ -195,6 +238,7 @@
 		4D125EA319B0D54B00B0DAD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D9DF7EF19B511AD00506290 /* QuartzCore.framework */,
 				4D125EDF19B0D6D200B0DAD1 /* MapKit.framework */,
 				4D125EDD19B0D6C700B0DAD1 /* ImageIO.framework */,
 				4D125EDB19B0D6B700B0DAD1 /* CoreLocation.framework */,
@@ -210,6 +254,7 @@
 		4D125EAA19B0D54B00B0DAD1 /* InstaMaepz */ = {
 			isa = PBXGroup;
 			children = (
+				4D9DF7F419B527D600506290 /* Custom Fonts */,
 				4D9DF7E519B2785600506290 /* Custom Images */,
 				4D125EFF19B17F4000B0DAD1 /* Custom Views and Cells */,
 				4D125EEE19B10B3100B0DAD1 /* Classes */,
@@ -299,6 +344,10 @@
 				4D125EE419B0E32700B0DAD1 /* UserCollectionCell.h */,
 				4D125EE519B0E32700B0DAD1 /* UserCollectionCell.m */,
 				4D125F0019B17FB200B0DAD1 /* UserCollectionCell.xib */,
+				4D9DF7EA19B50FB600506290 /* IMCustomReusableView.h */,
+				4D9DF7EB19B50FB600506290 /* IMCustomReusableView.m */,
+				4D9DF7F119B5122B00506290 /* IMCustomCollectionLayout.h */,
+				4D9DF7F219B5122B00506290 /* IMCustomCollectionLayout.m */,
 			);
 			name = "Custom Views and Cells";
 			path = ..;
@@ -348,9 +397,33 @@
 			isa = PBXGroup;
 			children = (
 				4D9DF7E619B2785600506290 /* circlemask.png */,
+				4D9DF7ED19B5108300506290 /* IMPhotoLogo.png */,
 				4D9DF7E719B2785600506290 /* notifications.png */,
 			);
 			path = "Custom Images";
+			sourceTree = "<group>";
+		};
+		4D9DF7F419B527D600506290 /* Custom Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4D9DF7F519B527D600506290 /* GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff */,
+				4D9DF7F619B527D600506290 /* GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff */,
+				4D9DF7F719B527D600506290 /* GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff */,
+				4D9DF7F819B527D600506290 /* GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff */,
+				4D9DF7F919B527D600506290 /* GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff */,
+				4D9DF7FA19B527D600506290 /* LICENSE.txt */,
+				4D9DF7FB19B527D600506290 /* OpenSans-Bold.ttf */,
+				4D9DF7FC19B527D600506290 /* OpenSans-BoldItalic.ttf */,
+				4D9DF7FD19B527D600506290 /* OpenSans-ExtraBold.ttf */,
+				4D9DF7FE19B527D600506290 /* OpenSans-ExtraBoldItalic.ttf */,
+				4D9DF7FF19B527D600506290 /* OpenSans-Italic.ttf */,
+				4D9DF80019B527D600506290 /* OpenSans-Light.ttf */,
+				4D9DF80119B527D600506290 /* OpenSans-LightItalic.ttf */,
+				4D9DF80219B527D600506290 /* OpenSans-Regular.ttf */,
+				4D9DF80319B527D600506290 /* OpenSans-Semibold.ttf */,
+				4D9DF80419B527D600506290 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = "Custom Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,12 +502,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9DF80819B527D600506290 /* GothamRnd-Light-cb1133a289a02e703f56cd628cebb6bc.woff in Resources */,
+				4D9DF80E19B527D600506290 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				4D125EBD19B0D54B00B0DAD1 /* Images.xcassets in Resources */,
+				4D9DF81019B527D600506290 /* OpenSans-Light.ttf in Resources */,
+				4D9DF80919B527D600506290 /* GothamRnd-Medium-74441cbbcf30d12d9ee20c4785902a4c.woff in Resources */,
+				4D9DF7EE19B5108300506290 /* IMPhotoLogo.png in Resources */,
 				4D125EAF19B0D54B00B0DAD1 /* InfoPlist.strings in Resources */,
+				4D9DF80A19B527D600506290 /* LICENSE.txt in Resources */,
 				4D125F0119B17FB200B0DAD1 /* UserCollectionCell.xib in Resources */,
 				4D125EB819B0D54B00B0DAD1 /* Main.storyboard in Resources */,
+				4D9DF81219B527D600506290 /* OpenSans-Regular.ttf in Resources */,
+				4D9DF80F19B527D600506290 /* OpenSans-Italic.ttf in Resources */,
+				4D9DF81319B527D600506290 /* OpenSans-Semibold.ttf in Resources */,
+				4D9DF81419B527D600506290 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				4D9DF80B19B527D600506290 /* OpenSans-Bold.ttf in Resources */,
+				4D9DF80C19B527D600506290 /* OpenSans-BoldItalic.ttf in Resources */,
+				4D9DF80719B527D600506290 /* GothamRnd-BookIta-8a90455105fb5f57d1d3ea1fd4a9d6d5.woff in Resources */,
+				4D9DF81119B527D600506290 /* OpenSans-LightItalic.ttf in Resources */,
+				4D9DF80D19B527D600506290 /* OpenSans-ExtraBold.ttf in Resources */,
 				4D9DF7E919B2785600506290 /* notifications.png in Resources */,
+				4D9DF80619B527D600506290 /* GothamRnd-Book-f6a524a37f61d8ed16d343b4187c4dbe.woff in Resources */,
 				4D9DF7E819B2785600506290 /* circlemask.png in Resources */,
+				4D9DF80519B527D600506290 /* GothamRnd-Bold-6ab07add22b1c19b2a6b1c9d321b3e09.woff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +555,7 @@
 				4D125EB519B0D54B00B0DAD1 /* AppDelegate.m in Sources */,
 				4D9DF7D819B25C7E00506290 /* SDWebImageDecoder.m in Sources */,
 				4D125EFE19B16E1A00B0DAD1 /* MBProgressHUD.m in Sources */,
+				4D9DF7EC19B50FB600506290 /* IMCustomReusableView.m in Sources */,
 				4D9DF7E119B25C7E00506290 /* UIImageView+HighlightedWebCache.m in Sources */,
 				4D125EF119B10B4E00B0DAD1 /* IMInstagramPhoto.m in Sources */,
 				4D9DF7D919B25C7E00506290 /* SDWebImageDownloader.m in Sources */,
@@ -478,6 +569,7 @@
 				4D9DF7D419B25C7E00506290 /* MKAnnotationView+WebCache.m in Sources */,
 				4D9DF7E219B25C7E00506290 /* UIImageView+WebCache.m in Sources */,
 				4D9DF7E319B25C7E00506290 /* UIView+WebCacheOperation.m in Sources */,
+				4D9DF7F319B5122B00506290 /* IMCustomCollectionLayout.m in Sources */,
 				4D9DF7DB19B25C7E00506290 /* SDWebImageManager.m in Sources */,
 				4D125F0719B19DFA00B0DAD1 /* IMPhotoDetailsViewController.m in Sources */,
 				4D125EFA19B14BD700B0DAD1 /* NSString+Helpers.m in Sources */,

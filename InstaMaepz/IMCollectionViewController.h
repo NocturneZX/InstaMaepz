@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IMCollectionViewController : UIViewController
+@interface IMCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 - (void)loadFromPhoto:(NSArray *)photo;
 @end

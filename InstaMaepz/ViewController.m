@@ -26,11 +26,15 @@
 @property (nonatomic, strong) MBProgressHUD *HUD;
 
 //Views
-@property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet MKMapView *MKInstaMapView;
 
 //Gesture Recognizer
 @property (nonatomic, strong) UITapGestureRecognizer *MKTapGestureRecognizer;
+
+//Slider
+@property (nonatomic, strong) IBOutlet UISlider *slider;
+@property (nonatomic, weak) IBOutlet UIView *distanceView;
+@property (nonatomic, weak) IBOutlet UILabel *distanceLabel;
 
 @end
 
@@ -57,6 +61,12 @@
                  context:NULL];
 
 	// Do any additional setup after loading the view, typically from a nib.
+    self.slider.value = DEFAULT_RADIUS;
+    
+    [self.slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
+    [self.slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
     self.MKTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [self.MKInstaMapView addGestureRecognizer:self.MKTapGestureRecognizer];
 }
@@ -201,35 +211,32 @@
             
             MKInstaMapAnnotation *annotation = [[MKInstaMapAnnotation alloc]initWithLocation:coordinate];
             annotation.photo = photo;
-            annotation.title = [NSString stringWithFormat:@"%.2f km by %@",
-                                [self FindDistance:coordinate] , photo.photoUserName];
+            annotation.title = [NSString stringWithFormat:@"%.2f miles by %@",
+                                KILOMETERS_TO_MILES(photo.distance)  , photo.photoUserName];
             annotation.subtitle = [NSString stringWithFormat:@"Filter: %@", photo.photoFilterName];
             
             [self.MKInstaMapView addAnnotation:annotation];
             
-            NSLog(@"MAP LAT: %f, SERVICE LAT: %f", self.MKInstaMapView.userLocation.location.coordinate.longitude, [IMLocationService currentLocation].coordinate.longitude);
-
+            self.distanceLabel.text = [NSString stringWithFormat:@"Distance: %.2f miles",
+                                       KILOMETERS_TO_MILES(photo.distance)];
             
         }];
     }
     
+    [self showSlider];
 }
 
 -(void)getInstagramData: (CLLocation *)loc{
+    
+    if (self.slider.alpha)
+        [self hideSlider];
     
     // Declare and initialize the downloader
     self.datadownloader = [IMInstagramAPIRequest sharedInstance];
     self.datadownloader.delegate = self;
     self.datadownloader.searchCurrentLocation = loc;
-    self.datadownloader.searchRadius = DEFAULT_RADIUS;
-    
-    // Remove any current annotations(if any) and center the map.
-    NSArray *annotations = self.MKInstaMapView.annotations;
-    if(annotations.count > 0) {
-        [self.MKInstaMapView removeAnnotations:annotations];
-    }
-    [self.MKInstaMapView removeOverlays:self.MKInstaMapView.overlays];
-    [self CenterTheMap:DEFAULT_RADIUS];
+    self.datadownloader.searchRadius = (self.slider.value == DEFAULT_RADIUS)
+                                                ? DEFAULT_RADIUS : self.slider.value;
     
     // Get the photo objects
     [self.datadownloader getArrayOfPhotoObjectsFromLocation];
@@ -239,7 +246,7 @@
 - (void)showHUDWithMessage:(NSString *)message detailMessage:(NSString *)detailMessage {
     self.HUD = [[MBProgressHUD alloc] initWithView:self.view];
     self.HUD.removeFromSuperViewOnHide = YES;
-    self.HUD.mode = MBProgressHUDModeText;
+    self.HUD.mode = MBProgressHUDModeIndeterminate;
     [self.view addSubview:self.HUD];
     
     self.HUD.labelText = message;
@@ -249,12 +256,33 @@
     [self.HUD hide:YES afterDelay:3.5f];
 }
 #pragma mark - UISlider Methods
+-(void)showSlider{
+    [UIView animateWithDuration:2.0 animations:^{
+        self.distanceView.alpha = 1.0;
+        self.slider.alpha = 1.0;
+    }];
+}
+-(void)hideSlider{
+    [UIView animateWithDuration:2.0 animations:^{
+        self.distanceView.alpha = 0.0;
+        self.slider.alpha = 0.0;
+    }];
+}
+
 - (void)sliderTouchEnded:(UISlider *)sender {
+    [self showHUDWithMessage:@"Radius Changed" detailMessage:@"Updating Map"];
     [self getInstagramData:[IMLocationService currentLocation]];
 }
 - (void)sliderValueChanged:(UISlider *)sender {
     
+    NSArray *annotations = self.MKInstaMapView.annotations;
+    if( annotations.count > 0) {
+        [self.MKInstaMapView removeAnnotations:annotations];
+    }
+    [self.MKInstaMapView removeOverlays:self.MKInstaMapView.overlays];
+    [self CenterTheMap:sender.value];
 }
+
 #pragma mark - CLLocation KVO Methods
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
@@ -268,7 +296,16 @@
             
             CLLocation *currentLoc = [IMLocationService sharedService].currentLocation;
         
+            // Remove any current annotations(if any) and center the map.
+            NSArray *annotations = self.MKInstaMapView.annotations;
+            if(annotations.count > 0) {
+                [self.MKInstaMapView removeAnnotations:annotations];
+            }
+            [self.MKInstaMapView removeOverlays:self.MKInstaMapView.overlays];
+            [self CenterTheMap:self.slider.value];
+            
             // Call Instagram API and clear the old annotations
+             [self showHUDWithMessage:@"Found Location" detailMessage:@"Attempting to get photo in your area.."];
             [self getInstagramData:currentLoc];
         
         }

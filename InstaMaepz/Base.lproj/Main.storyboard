@@ -39,20 +39,45 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="gbd-6C-jbJ"/>
                                 </connections>
                             </mapView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="20" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-3s-4Mt">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="20" maxValue="4500" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-3s-4Mt">
                                 <rect key="frame" x="18" y="502" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.14194264030000001" green="0.76687754760000004" blue="0.75783628670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.96078437566757202" green="0.94509810209274292" blue="0.91372555494308472" alpha="1" colorSpace="deviceRGB"/>
                             </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-5E-AKz">
+                                <rect key="frame" x="20" y="65" width="280" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: 2.90 miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38r-Qa-9nP">
+                                        <rect key="frame" x="0.0" y="11" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="38r-Qa-9nP" firstAttribute="leading" secondItem="s5a-5E-AKz" secondAttribute="leading" id="NJG-Vu-Vfd"/>
+                                    <constraint firstItem="38r-Qa-9nP" firstAttribute="centerY" secondItem="s5a-5E-AKz" secondAttribute="centerY" id="Wf7-xW-xoz"/>
+                                    <constraint firstItem="38r-Qa-9nP" firstAttribute="top" secondItem="s5a-5E-AKz" secondAttribute="top" constant="11" id="qV0-ne-RMG"/>
+                                    <constraint firstAttribute="trailing" secondItem="38r-Qa-9nP" secondAttribute="trailing" id="tMK-vJ-Bhs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rl2-Y7-wHe" firstAttribute="top" secondItem="ZtR-3s-4Mt" secondAttribute="bottom" constant="36" id="Fuo-y1-aYm"/>
-                            <constraint firstItem="ZtR-3s-4Mt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="QPe-4E-W0E"/>
-                            <constraint firstItem="Swr-Kl-6UE" firstAttribute="top" secondItem="len-Zt-6y7" secondAttribute="bottom" constant="1" id="agZ-dI-jAb"/>
-                            <constraint firstAttribute="trailing" secondItem="ZtR-3s-4Mt" secondAttribute="trailing" constant="20" symbolic="YES" id="h7b-iE-u4n"/>
-                            <constraint firstItem="Swr-Kl-6UE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="l0V-6U-koB"/>
-                            <constraint firstItem="Swr-Kl-6UE" firstAttribute="centerX" secondItem="ZtR-3s-4Mt" secondAttribute="centerX" id="rO3-Oo-YZS"/>
-                            <constraint firstAttribute="bottom" secondItem="Swr-Kl-6UE" secondAttribute="bottom" id="ywb-Qw-lw7"/>
+                            <constraint firstAttribute="trailing" secondItem="s5a-5E-AKz" secondAttribute="trailing" constant="20" symbolic="YES" id="0cU-vf-hDA"/>
+                            <constraint firstItem="rl2-Y7-wHe" firstAttribute="top" secondItem="ZtR-3s-4Mt" secondAttribute="bottom" constant="36" id="1Ok-hN-X2x"/>
+                            <constraint firstAttribute="bottom" secondItem="Swr-Kl-6UE" secondAttribute="bottom" id="F4l-C7-VdJ"/>
+                            <constraint firstItem="s5a-5E-AKz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="OhK-wf-BE8"/>
+                            <constraint firstItem="ZtR-3s-4Mt" firstAttribute="leading" secondItem="s5a-5E-AKz" secondAttribute="leading" id="SAT-BW-i3m"/>
+                            <constraint firstItem="s5a-5E-AKz" firstAttribute="trailing" secondItem="ZtR-3s-4Mt" secondAttribute="trailing" id="aQi-XJ-i0f"/>
+                            <constraint firstItem="Swr-Kl-6UE" firstAttribute="top" secondItem="s5a-5E-AKz" secondAttribute="top" id="dA7-aw-ZvY"/>
+                            <constraint firstItem="s5a-5E-AKz" firstAttribute="centerX" secondItem="Swr-Kl-6UE" secondAttribute="centerX" id="gha-x8-U8b"/>
+                            <constraint firstItem="s5a-5E-AKz" firstAttribute="top" secondItem="len-Zt-6y7" secondAttribute="bottom" constant="1" id="oVx-5J-BUg"/>
+                            <constraint firstItem="Swr-Kl-6UE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="yjj-W9-rRw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="InstaMaepz" id="z6I-4l-ol4"/>
@@ -60,10 +85,13 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="MKInstaMapView" destination="Swr-Kl-6UE" id="Ich-uq-gmm"/>
+                        <outlet property="distanceLabel" destination="38r-Qa-9nP" id="JzQ-pk-B2F"/>
+                        <outlet property="distanceView" destination="s5a-5E-AKz" id="QbM-lZ-jx0"/>
                         <outlet property="slider" destination="ZtR-3s-4Mt" id="CRU-px-3in"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="PwD-gZ-nMO"/>
             </objects>
             <point key="canvasLocation" x="-186" y="-340"/>
         </scene>

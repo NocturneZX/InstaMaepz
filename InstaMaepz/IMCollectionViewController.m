@@ -9,6 +9,8 @@
 #import "IMPhotoDetailsViewController.h"
 #import "IMCollectionViewController.h"
 #import "UserCollectionCell.h"
+#import "IMCustomReusableView.h"
+#import "IMCustomCollectionLayout.h"
 #import "IMInstagramPhoto.h"
 #import "UIImageView+WebCache.h"
 
@@ -19,6 +21,7 @@
 @property (nonatomic, strong) NSArray *photoOfUsers;
 
 @end
+
 
 @implementation IMCollectionViewController
 
@@ -48,7 +51,8 @@
     UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
     flowLayout.minimumInteritemSpacing = 8;
     flowLayout.itemSize = CGSizeMake(96, 156);
-    
+
+
     
 }
 
@@ -90,4 +94,5 @@
     [detail loadFromPhoto:selectedPhoto];
     [self.navigationController pushViewController:detail animated:YES];
 }
+
 @end
