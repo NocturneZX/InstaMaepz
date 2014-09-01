@@ -79,10 +79,15 @@
     UserCollectionCell *collectioncell = (UserCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     IMInstagramPhoto *currentPhoto = [self.photoOfUsers objectAtIndex:indexPath.row];
     
+    collectioncell.photoUserName.font = OPEN_SANS_FONT_CELL;
+    collectioncell.userDistance.font = OPEN_SANS_FONT_CELL;
+    
     collectioncell.photoUserName.text = currentPhoto.photoUserName;
     collectioncell.userDistance.text = [NSString stringWithFormat:@"%.2f miles",
                                         KILOMETERS_TO_MILES(currentPhoto.distance)];
     [collectioncell.photoImage sd_setImageWithURL:[NSURL URLWithString:currentPhoto.photoStandardQualityImageURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    collectioncell.photoImage.image =     [self maskImage:collectioncell.photoImage.image withMask:[UIImage imageNamed:@"circlemask.png"]];
+
     return collectioncell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -93,6 +98,26 @@
     IMPhotoDetailsViewController *detail = [storyboard instantiateViewControllerWithIdentifier:@"IMPhotoDetailsViewController"];
     [detail loadFromPhoto:selectedPhoto];
     [self.navigationController pushViewController:detail animated:YES];
+}
+
+#pragma mark - Image Mask
+- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage{
+    CGImageRef maskReference = maskImage.CGImage;
+    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskReference),
+                                        CGImageGetHeight(maskReference),
+                                        CGImageGetBitsPerComponent(maskReference),
+                                        CGImageGetBitsPerPixel(maskReference),
+                                        CGImageGetBytesPerRow(maskReference),
+                                        CGImageGetDataProvider(maskReference), NULL, false);
+    
+    CGImageRef maskedImageRef = CGImageCreateWithMask([image CGImage], mask);
+    UIImage *maskedImage = [UIImage imageWithCGImage:maskedImageRef];
+    
+    CGImageRelease(mask);
+    CGImageRelease(maskedImageRef);
+    
+    // returns new image with mask applied
+    return maskedImage;
 }
 
 @end

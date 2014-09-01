@@ -62,6 +62,7 @@
 
 	// Do any additional setup after loading the view, typically from a nib.
     self.slider.value = DEFAULT_RADIUS;
+    self.distanceLabel.font = OPEN_SANS_FONT;
     
     [self.slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
     [self.slider addTarget:self action:@selector(sliderTouchEnded:) forControlEvents:UIControlEventTouchUpOutside];
@@ -214,6 +215,8 @@
             annotation.title = [NSString stringWithFormat:@"%.2f miles by %@",
                                 KILOMETERS_TO_MILES(photo.distance)  , photo.photoUserName];
             annotation.subtitle = [NSString stringWithFormat:@"Filter: %@", photo.photoFilterName];
+            
+            
             
             [self.MKInstaMapView addAnnotation:annotation];
             

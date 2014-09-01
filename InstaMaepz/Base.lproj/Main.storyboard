@@ -207,7 +207,7 @@
                         <outlet property="photoCaptionLabel" destination="jEr-C0-ImG" id="jKd-T3-Aer"/>
                         <outlet property="photoFilterLabel" destination="73e-Aj-Rv0" id="bRW-UF-tn2"/>
                         <outlet property="photoImageView" destination="WzL-7f-RGE" id="EH1-Iy-pe1"/>
-                        <outlet property="photoUsernameLabel" destination="jEr-C0-ImG" id="l7a-gy-MJK"/>
+                        <outlet property="photoUsernameLabel" destination="hWe-CC-0jc" id="uEw-5G-MHG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15L-HM-lKH" userLabel="First Responder" sceneMemberID="firstResponder"/>

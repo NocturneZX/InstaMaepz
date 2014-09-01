@@ -16,6 +16,8 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
+        
+       
     }
     return self;
 }

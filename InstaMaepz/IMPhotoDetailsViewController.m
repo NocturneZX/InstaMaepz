@@ -42,8 +42,13 @@
         self.detailView.alpha = 0.0;
     }
     
+    self.photoCaptionLabel.text = self.selectedPhoto.photoCaption;
     self.photoUsernameLabel.text = self.selectedPhoto.photoUserName;
-    self.photoFilterLabel.text = [NSString stringWithFormat:@"Filter: %@", self.selectedPhoto.photoFilterName];
+    self.photoFilterLabel.text = self.selectedPhoto.photoFilterName;
+    
+    self.photoCaptionLabel.font = OPEN_SANS_FONT;
+    self.photoUsernameLabel.font = OPEN_SANS_FONT;
+    self.photoFilterLabel.font = OPEN_SANS_FONT_ITALIC;
     
     [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:self.selectedPhoto.photoStandardQualityImageURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];;
 }

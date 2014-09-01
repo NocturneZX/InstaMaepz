@@ -21,5 +21,8 @@
 #define KILOMETERS_TO_MILES(km) km * 0.621371192
 #define METERS_PER_MILE 1609.344
 
+#define OPEN_SANS_FONT_NAV [UIFont fontWithName:@"OpenSans-ExtraBold" size:18]
 #define OPEN_SANS_FONT [UIFont fontWithName:@"OpenSans" size:14]
+#define OPEN_SANS_FONT_CELL [UIFont fontWithName:@"OpenSans" size:12]
+
 #define OPEN_SANS_FONT_ITALIC [UIFont fontWithName:@"OpenSans-LightItalic" size:14]

@@ -15,8 +15,12 @@
     
     // Set tine of navbar
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:235.0/255.0 green:233.0/255.0 blue:225.0/255.0 alpha:1  ]];
-
     
+
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:OPEN_SANS_FONT_NAV, NSFontAttributeName,
+                                [UIColor blackColor], NSForegroundColorAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes: attributes];
+
     // Override point for customization after application launch.
     return YES;
 }
