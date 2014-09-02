@@ -13,7 +13,7 @@
 #import "IMCustomCollectionLayout.h"
 #import "IMInstagramPhoto.h"
 #import "UIImageView+WebCache.h"
-
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 @interface IMCollectionViewController ()
 
 @property (nonatomic, strong) IBOutlet UICollectionView *IMCollectionView;
@@ -53,6 +53,7 @@
     flowLayout.itemSize = CGSizeMake(96, 156);
 
 
+    [self.IMCollectionView reloadData];
     
 }
 
@@ -85,9 +86,23 @@
     collectioncell.photoUserName.text = currentPhoto.photoUserName;
     collectioncell.userDistance.text = [NSString stringWithFormat:@"%.2f miles",
                                         KILOMETERS_TO_MILES(currentPhoto.distance)];
-    [collectioncell.photoImage sd_setImageWithURL:[NSURL URLWithString:currentPhoto.photoStandardQualityImageURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-    collectioncell.photoImage.image =     [self maskImage:collectioncell.photoImage.image withMask:[UIImage imageNamed:@"circlemask.png"]];
+    
+    if (!collectioncell.photoImage.image) {
+        [collectioncell.photoImage sd_setImageWithURL:[NSURL URLWithString:currentPhoto.photoStandardQualityImageURL]
+                                     placeholderImage:[UIImage imageNamed:@"IMPhotoLogo.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIView transitionWithView:self.IMCollectionView
+                                        duration:0.2
+                                        options:UIViewAnimationOptionTransitionCrossDissolve
+                                        animations:^{
+                                            collectioncell.photoImage.image = [collectioncell maskImage:image withMask:[UIImage imageNamed:@"circlemask.png"]];
+                                            [collectioncell setNeedsLayout];
+                                        }completion:NULL];
+            });// end dispatch_async(dispatch_get_main_queue())
+        }];
+    }
 
+    
     return collectioncell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -98,26 +113,6 @@
     IMPhotoDetailsViewController *detail = [storyboard instantiateViewControllerWithIdentifier:@"IMPhotoDetailsViewController"];
     [detail loadFromPhoto:selectedPhoto];
     [self.navigationController pushViewController:detail animated:YES];
-}
-
-#pragma mark - Image Mask
-- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage{
-    CGImageRef maskReference = maskImage.CGImage;
-    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskReference),
-                                        CGImageGetHeight(maskReference),
-                                        CGImageGetBitsPerComponent(maskReference),
-                                        CGImageGetBitsPerPixel(maskReference),
-                                        CGImageGetBytesPerRow(maskReference),
-                                        CGImageGetDataProvider(maskReference), NULL, false);
-    
-    CGImageRef maskedImageRef = CGImageCreateWithMask([image CGImage], mask);
-    UIImage *maskedImage = [UIImage imageWithCGImage:maskedImageRef];
-    
-    CGImageRelease(mask);
-    CGImageRelease(maskedImageRef);
-    
-    // returns new image with mask applied
-    return maskedImage;
 }
 
 @end

@@ -202,6 +202,7 @@
                             <constraint firstAttribute="trailing" secondItem="BBX-kJ-oUQ" secondAttribute="trailing" id="nH0-95-Wdy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Current Photo" id="kaC-AK-GFS"/>
                     <connections>
                         <outlet property="detailView" destination="BBX-kJ-oUQ" id="0Th-iq-aW1"/>
                         <outlet property="photoCaptionLabel" destination="jEr-C0-ImG" id="jKd-T3-Aer"/>

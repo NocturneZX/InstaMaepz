@@ -25,4 +25,4 @@
 #define OPEN_SANS_FONT [UIFont fontWithName:@"OpenSans" size:14]
 #define OPEN_SANS_FONT_CELL [UIFont fontWithName:@"OpenSans" size:12]
 
-#define OPEN_SANS_FONT_ITALIC [UIFont fontWithName:@"OpenSans-LightItalic" size:14]
+#define OPEN_SANS_FONT_ITALIC [UIFont fontWithName:@"OpenSans-Italic" size:14]

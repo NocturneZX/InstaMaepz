@@ -12,5 +12,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photoImage;
 @property (strong, nonatomic) IBOutlet UILabel *photoUserName;
 @property (strong, nonatomic) IBOutlet UILabel *userDistance;
-
+- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage;
 @end

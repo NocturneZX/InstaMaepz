@@ -10,5 +10,4 @@
 
 @interface IMCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 - (void)loadFromPhoto:(NSArray *)photo;
-- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage;
 @end

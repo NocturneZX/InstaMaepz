@@ -73,6 +73,7 @@
 		4D9DF81219B527D600506290 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80219B527D600506290 /* OpenSans-Regular.ttf */; };
 		4D9DF81319B527D600506290 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80319B527D600506290 /* OpenSans-Semibold.ttf */; };
 		4D9DF81419B527D600506290 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D9DF80419B527D600506290 /* OpenSans-SemiboldItalic.ttf */; };
+		4D9DF81719B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DF81619B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,8 @@
 		4D9DF80219B527D600506290 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		4D9DF80319B527D600506290 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		4D9DF80419B527D600506290 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		4D9DF81519B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		4D9DF81619B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +359,8 @@
 		4D9DF7B219B25C7E00506290 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				4D9DF81519B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
+				4D9DF81619B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				4D9DF7B319B25C7E00506290 /* MKAnnotationView+WebCache.h */,
 				4D9DF7B419B25C7E00506290 /* MKAnnotationView+WebCache.m */,
 				4D9DF7B519B25C7E00506290 /* NSData+ImageContentType.h */,
@@ -557,6 +562,7 @@
 				4D125EFE19B16E1A00B0DAD1 /* MBProgressHUD.m in Sources */,
 				4D9DF7EC19B50FB600506290 /* IMCustomReusableView.m in Sources */,
 				4D9DF7E119B25C7E00506290 /* UIImageView+HighlightedWebCache.m in Sources */,
+				4D9DF81719B5621400506290 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				4D125EF119B10B4E00B0DAD1 /* IMInstagramPhoto.m in Sources */,
 				4D9DF7D919B25C7E00506290 /* SDWebImageDownloader.m in Sources */,
 				4D9DF7D719B25C7E00506290 /* SDWebImageCompat.m in Sources */,
